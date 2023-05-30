@@ -39,6 +39,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Login Siswa</h1>
                                     </div>
+                                    <?php echo $this->session->flashdata('message'); ?>
                                     <form class="user" method="post" action="<?= site_url('auth/login_siswa') ?>">
                                         <div class="form-group">
                                             <input type="text" name="nis" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nis...">

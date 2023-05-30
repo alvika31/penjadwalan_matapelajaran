@@ -8,20 +8,20 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger">List Siswa</h6>
+            <h6 class="m-0 font-weight-bold text-danger">List Guru</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <a href="<?= site_url('admin/add_siswa') ?>" type="button" class="btn btn-primary mb-4">Tambah Siswa</a>
+                    <a href="<?= site_url('admin/add_guru') ?>" type="button" class="btn btn-primary mb-4">Tambah Guru</a>
                     <thead>
                         <tr>
                             <th>No</th>
                             <th>Nama Lengkap</th>
-                            <th>NIS</th>
+                            <th>NIP</th>
                             <th>Email</th>
                             <th>Jenis Kelamin</th>
-                            <th>Kelas</th>
+                            <th>Jabatan</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -30,27 +30,26 @@
                         <tr>
                             <th>No</th>
                             <th>Nama Lengkap</th>
-                            <th>NIS</th>
+                            <th>NIP</th>
                             <th>Email</th>
                             <th>Jenis Kelamin</th>
-                            <th>Kelas</th>
+                            <th>Jabatan</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($siswa as $users) { ?>
+                        foreach ($guru as $users) { ?>
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><?= $users->nama_lengkap ?></td>
-                                <td><?= $users->nis ?></td>
+                                <td><?= $users->nama_guru ?></td>
+                                <td><?= $users->nip ?></td>
                                 <td><?= $users->email ?></td>
                                 <td><?= $users->jenis_kelamin ?></td>
-                                <td><?= $users->nama_kelas ?></td>
-
+                                <td><?= $users->jabatan ?></td>
                                 <td>
-                                    <a href="<?= site_url('admin/edit_siswa/' . $users->id_siswa) ?>" class="btn btn-success">Edit</a>
-                                    <button onclick="hapus(<?php echo $users->id_siswa; ?>)" class="btn btn-danger">Delete</button>
+                                    <a href="<?= site_url('admin/edit_guru/' . $users->id_guru) ?>" class="btn btn-success">Edit</a>
+                                    <button onclick="hapus(<?php echo $users->id_guru; ?>)" class="btn btn-danger">Delete</button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -62,7 +61,7 @@
 
 </div>
 <script>
-    function hapus(id) {
+    function hapus(id_guru) {
         Swal.fire({
             title: 'Yakin menghapus Data Siswa?',
             text: "Data yang sudah dihapus tidak dapat dikembalikan!",
@@ -75,15 +74,15 @@
             if (result.value) {
                 Swal.fire({
                     title: 'Terhapus!',
-                    text: 'Data Siswa berhasil dihapus.',
+                    text: 'Data Guru berhasil dihapus.',
                     icon: 'success',
                     showConfirmButton: false
                 });
                 $.ajax({
                     type: "POST",
-                    url: "<?= site_url('admin/delete_siswa') ?>", //url function delete in controller
+                    url: "<?= site_url('admin/delete_guru') ?>", //url function delete in controller
                     data: {
-                        id: id //id get from button delete
+                        id_guru: id_guru //id get from button delete
                     },
                     success: function(data) { //when success will reload page after 3 second
                         window.setTimeout(function() {

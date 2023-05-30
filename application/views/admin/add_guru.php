@@ -4,7 +4,7 @@
 
      <!-- Page Heading -->
 
-     <h1 class="h3 mb-2 text-gray-800">Registrasi Akun Siswa</h1>
+     <h1 class="h3 mb-2 text-gray-800">Registrasi Akun Guru</h1>
      <?php if (validation_errors()) { ?>
          <div class="alert alert-danger" role="alert">
              <?= validation_errors(); ?>
@@ -14,19 +14,20 @@
      <!-- DataTales Example -->
      <div class="card shadow mb-4 mt-3">
          <div class="card-header py-3">
-             <h6 class="m-0 font-weight-bold text-danger">Form Registrasi Siswa</h6>
+             <h6 class="m-0 font-weight-bold text-danger">Form Registrasi Guru</h6>
          </div>
          <div class="px-5 pb-4">
-             <h5 class="mt-4">Note: Password sama dengan NIS</h5>
-             <form method="post" class="user" action="<?= site_url('admin/do_add_siswa') ?>">
+             <h5 class="mt-4">Note: Password sama dengan NIP</h5>
+             <form method="post" class="user" action="<?= site_url('admin/do_add_guru') ?>">
                  <div class="form-group row">
                      <div class="col-sm-6 mb-3 mb-sm-0">
                          <label>Nama Lengkap:</label>
-                         <input type="text" name="nama_lengkap" class="form-control" id="exampleFirstName" required>
+                         <input type="text" name="nama_guru" class="form-control" id="exampleFirstName" required>
+
                      </div>
                      <div class="col-sm-6">
-                         <label>NIS:</label>
-                         <input type="text" name="nis" class="form-control" id="exampleLastName" required>
+                         <label>NIP:</label>
+                         <input type="text" name="nip" class="form-control" id="exampleLastName" required>
                      </div>
                  </div>
                  <div class="form-group row">
@@ -47,11 +48,10 @@
                  </div>
                  <div class="form-group row">
                      <div class="col-sm-12 mb-3 mb-sm-0">
-                         <label>Kelas:</label>
-                         <select class="form-control" name="id_kelas" required>
-                             <?php foreach ($kelas as $kelas) { ?>
-                                 <option value="<?= $kelas->id_kelas ?>"><?= $kelas->nama_kelas ?></option>
-                             <?php } ?>
+                         <label>Jabatan:</label>
+                         <select class="form-control" name="jabatan" required>
+                             <option value="Wali Kelas">Wali Kelas</option>
+                             <option value="Pengajar">Pengajar</option>
                          </select>
 
                      </div>
@@ -76,7 +76,7 @@
              title: 'Success...',
              text: 'Data Berhasil ditambahkan'
          }).then(function() {
-             window.location = "<?= site_url('admin/list_siswa') ?>";
+             window.location = "<?= site_url('admin/list_guru') ?>";
          });
      <?php } ?>
 

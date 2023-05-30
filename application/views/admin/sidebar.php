@@ -25,45 +25,33 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item <?= ($title === 'Halaman List User' || $title === 'Halaman Register') ? 'active' : '' ?>">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-              <i class="fas fa-solid fa-user" style="color:#FF3600"></i>
-              <span style="color:black">Siswa</span>
-          </a>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">User Page</h6>
-                  <a class="collapse-item <?= ($title === 'Halaman List User') ? 'active' : '' ?>" href="<?= site_url('admin/list_siswa') ?>">List Siswa</a>
-                  <a class="collapse-item <?= ($title === 'Halaman Register') ? 'active' : '' ?>" href="<?= site_url('dashboard/register') ?>">Register Siswa</a>
-              </div>
-          </div>
+      <li class="nav-item <?= ($title === 'Halaman List Konsultasi Costumer') ? 'active' : '' ?>">
+          <a class="nav-link" href="<?= site_url('admin/list_siswa') ?>">
+              <i class="fas fa-solid fa-user-tie" style="color:#FF3600"></i>
+              <span style="color:black">Siswa</span></a>
       </li>
+
 
       <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item <?= ($title === 'Halaman List Pelayanan' || $title === 'Halaman Tambah Pelayanan') ? 'active' : '' ?>">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-              <i class="fas fa-solid fa-paper-plane" style="color:#FF3600"></i>
-
-              <span style="color:black">Guru</span>
-          </a>
-          <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">Pelayanan</h6>
-                  <a class="collapse-item <?= ($title === 'Halaman List Pelayanan') ? 'active' : '' ?>" href="<?= site_url('dashboard/listkategoripelayanan') ?>">List Guru</a>
-                  <a class="collapse-item <?= ($title === 'Halaman Tambah Pelayanan') ? 'active' : '' ?>" href="<?= site_url('dashboard/addPelayanan') ?>">Tambah Guru</a>
-
-              </div>
-          </div>
+      <li class="nav-item <?= ($title === 'Halaman List Konsultasi Costumer') ? 'active' : '' ?>">
+          <a class="nav-link" href="<?= site_url('admin/list_guru') ?>">
+              <i class="fas fa-solid fa-user-tie" style="color:#FF3600"></i>
+              <span style="color:black">Guru</span></a>
       </li>
       <li class="nav-item <?= ($title === 'Halaman List Konsultasi Costumer') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= site_url('dashboard/konsultasicostumer') ?>">
+          <a class="nav-link" href="<?= site_url('admin/list_kelas') ?>">
               <i class="fas fa-solid fa-user-tie" style="color:#FF3600"></i>
               <span style="color:black">Kelas</span></a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="<?= site_url('Page') ?>" target="_blank">
+          <a class="nav-link" href="<?= site_url('admin/list_ruangan') ?>">
               <i class="fas fa-solid fa-link" style="color:#FF3600"></i>
               <span style="color:black">Ruangan</span></a>
+      </li>
+      <li class="nav-item">
+          <a class="nav-link" href="<?= site_url('admin/list_jadwal_pelajaran') ?>">
+              <i class="fas fa-solid fa-link" style="color:#FF3600"></i>
+              <span style="color:black">Jadwal Mata Pelajaran</span></a>
       </li>
 
       <!-- Divider -->
@@ -129,11 +117,11 @@
                   <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hallo, <?= $this->session->userdata('username'); ?></span><i class="fas fa-solid fa-caret-down"></i>
+                          <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hallo, <?= $this->session->userdata('nama_admin'); ?></span><i class="fas fa-solid fa-caret-down"></i>
                       </a>
                       <!-- Dropdown - User Information -->
                       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
-                          <a class="dropdown-item" href="#">
+                          <a class="dropdown-item" href="<?= site_url('admin/my_profile') ?>">
                               <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400" style="color:#FF3600"></i>
                               Profile
                           </a>

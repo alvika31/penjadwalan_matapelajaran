@@ -39,6 +39,7 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Login Guru</h1>
                                     </div>
+                                    <?php echo $this->session->flashdata('message'); ?>
                                     <form class="user" method="post" action="<?= site_url('auth/login_guru') ?>">
                                         <div class="form-group">
                                             <input type="text" name="nip" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Nip......">

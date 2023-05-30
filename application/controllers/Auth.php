@@ -10,6 +10,14 @@ class Auth extends CI_Controller
         $this->load->library('form_validation');
     }
 
+    function index()
+    {
+        $data = [
+            'title' => 'Halaman Home'
+        ];
+        $this->load->view('auth/home', $data);
+    }
+
     function login_siswa()
     {
         $nis = $this->input->post('nis'); // Ambil isi dari inputan username pada form login
@@ -18,7 +26,7 @@ class Auth extends CI_Controller
 
         if (empty($user)) { // Jika hasilnya kosong / user tidak ditemukan
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-        <span style="color:white">Username Tidak Ditemukan</span>
+        <span style="color:black">Username Tidak Ditemukan</span>
        </div>'); // Buat session flashdata
             redirect('auth/siswa'); // Redirect ke halaman login
         } else {
@@ -38,7 +46,7 @@ class Auth extends CI_Controller
                 redirect('siswa'); // Redirect ke halaman welcome
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-          <span style="color:white">Harap Masukan Password Yang Benar</span>
+          <span style="color:black">Harap Masukan Password Yang Benar</span>
          </div>'); // Buat session flashdata
                 redirect('auth/siswa'); // Redirect ke halaman login
             }
@@ -53,7 +61,7 @@ class Auth extends CI_Controller
 
         if (empty($user)) { // Jika hasilnya kosong / user tidak ditemukan
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-        <span style="color:white">Username Tidak Ditemukan</span>
+        <span style="color:black">Username Tidak Ditemukan</span>
        </div>'); // Buat session flashdata
             redirect('auth/guru'); // Redirect ke halaman login
         } else {
@@ -73,7 +81,7 @@ class Auth extends CI_Controller
                 redirect('guru'); // Redirect ke halaman welcome
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-          <span style="color:white">Harap Masukan Password Yang Benar</span>
+          <span style="color:black">Harap Masukan Password Yang Benar</span>
          </div>'); // Buat session flashdata
                 redirect('auth/guru'); // Redirect ke halaman login
             }
@@ -88,7 +96,7 @@ class Auth extends CI_Controller
 
         if (empty($user)) { // Jika hasilnya kosong / user tidak ditemukan
             $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-        <span style="color:white">Username Tidak Ditemukan</span>
+        <span style="color:black">Username Tidak Ditemukan</span>
        </div>'); // Buat session flashdata
             redirect('auth/admin'); // Redirect ke halaman login
         } else {
@@ -107,7 +115,7 @@ class Auth extends CI_Controller
                 redirect('admin'); // Redirect ke halaman welcome
             } else {
                 $this->session->set_flashdata('message', '<div class="alert alert-danger" role="alert">
-          <span style="color:white">Harap Masukan Password Yang Benar</span>
+          <span style="color:black">Harap Masukan Password Yang Benar</span>
          </div>'); // Buat session flashdata
                 redirect('auth/admin'); // Redirect ke halaman login
             }
@@ -133,5 +141,10 @@ class Auth extends CI_Controller
             'title' => 'Halaman Login Admin'
         ];
         $this->load->view('auth/login_admin', $data);
+    }
+    function logout()
+    {
+        $this->session->sess_destroy();
+        redirect('auth');
     }
 }

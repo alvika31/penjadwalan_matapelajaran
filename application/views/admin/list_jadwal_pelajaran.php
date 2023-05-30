@@ -8,20 +8,22 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger">List Siswa</h6>
+            <h6 class="m-0 font-weight-bold text-danger">List Jadwal Mata Pelajaran</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <a href="<?= site_url('admin/add_siswa') ?>" type="button" class="btn btn-primary mb-4">Tambah Siswa</a>
+                    <a href="<?= site_url('admin/add_jadwal_pelajaran') ?>" class="btn btn-primary mb-4"> Tambah Jadwal Mata Pelajaran</a>
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Lengkap</th>
-                            <th>NIS</th>
-                            <th>Email</th>
-                            <th>Jenis Kelamin</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Jam Masuk</th>
+                            <th>Jam Selesai</th>
+                            <th>Hari</th>
                             <th>Kelas</th>
+                            <th>Ruangan</th>
+                            <th>Guru</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -29,28 +31,31 @@
 
                         <tr>
                             <th>No</th>
-                            <th>Nama Lengkap</th>
-                            <th>NIS</th>
-                            <th>Email</th>
-                            <th>Jenis Kelamin</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Jam Masuk</th>
+                            <th>Jam Selesai</th>
+                            <th>Hari</th>
                             <th>Kelas</th>
+                            <th>Ruangan</th>
+                            <th>Guru</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($siswa as $users) { ?>
+                        foreach ($jadwal as $jadwal) { ?>
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><?= $users->nama_lengkap ?></td>
-                                <td><?= $users->nis ?></td>
-                                <td><?= $users->email ?></td>
-                                <td><?= $users->jenis_kelamin ?></td>
-                                <td><?= $users->nama_kelas ?></td>
-
+                                <td><?= $jadwal->nama_pelajaran ?></td>
+                                <td><?= $jadwal->jam_awal ?></td>
+                                <td><?= $jadwal->jam_selesai ?></td>
+                                <td><?= $jadwal->hari ?></td>
+                                <td><?= $jadwal->nama_kelas ?></td>
+                                <td><?= $jadwal->nama_ruangan ?></td>
+                                <td><?= $jadwal->nama_guru ?></td>
                                 <td>
-                                    <a href="<?= site_url('admin/edit_siswa/' . $users->id_siswa) ?>" class="btn btn-success">Edit</a>
-                                    <button onclick="hapus(<?php echo $users->id_siswa; ?>)" class="btn btn-danger">Delete</button>
+                                    <a href="<?= site_url('admin/edit_jadwal_pelajaran/' . $jadwal->id_mapel) ?>" class="btn btn-success">Edit</a>
+                                    <button onclick="hapus(<?php echo $jadwal->id_mapel; ?>)" class="btn btn-danger">Delete</button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -62,9 +67,9 @@
 
 </div>
 <script>
-    function hapus(id) {
+    function hapus(id_mapel) {
         Swal.fire({
-            title: 'Yakin menghapus Data Siswa?',
+            title: 'Yakin menghapus Data Ruangan?',
             text: "Data yang sudah dihapus tidak dapat dikembalikan!",
             icon: 'warning',
             showCancelButton: true,
@@ -75,15 +80,15 @@
             if (result.value) {
                 Swal.fire({
                     title: 'Terhapus!',
-                    text: 'Data Siswa berhasil dihapus.',
+                    text: 'Data Ruangan berhasil dihapus.',
                     icon: 'success',
                     showConfirmButton: false
                 });
                 $.ajax({
                     type: "POST",
-                    url: "<?= site_url('admin/delete_siswa') ?>", //url function delete in controller
+                    url: "<?= site_url('admin/delete_jadwal_pelajaran') ?>", //url function delete in controller
                     data: {
-                        id: id //id get from button delete
+                        id_mapel: id_mapel //id get from button delete
                     },
                     success: function(data) { //when success will reload page after 3 second
                         window.setTimeout(function() {
@@ -99,7 +104,7 @@
         Swal.fire({
             icon: 'success',
             title: 'Success...',
-            text: 'Data Berhasil diedit'
+            text: 'Data Berhasil Ditambahkan'
         })
     <?php } ?>
 

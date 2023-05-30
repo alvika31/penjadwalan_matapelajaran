@@ -8,20 +8,19 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger">List Siswa</h6>
+            <h6 class="m-0 font-weight-bold text-danger">List Kelas</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <a href="<?= site_url('admin/add_siswa') ?>" type="button" class="btn btn-primary mb-4">Tambah Siswa</a>
+
+                    <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#exampleModal">
+                        Tambah Kelas
+                    </button>
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Lengkap</th>
-                            <th>NIS</th>
-                            <th>Email</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Kelas</th>
+                            <th>Nama Kelas</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -29,28 +28,19 @@
 
                         <tr>
                             <th>No</th>
-                            <th>Nama Lengkap</th>
-                            <th>NIS</th>
-                            <th>Email</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Kelas</th>
+                            <th>Nama Kelas</th>
                             <th>Action</th>
                         </tr>
                     </tfoot>
                     <tbody>
                         <?php $i = 1;
-                        foreach ($siswa as $users) { ?>
+                        foreach ($kelas as $kelas) { ?>
                             <tr>
                                 <td><?= $i++; ?></td>
-                                <td><?= $users->nama_lengkap ?></td>
-                                <td><?= $users->nis ?></td>
-                                <td><?= $users->email ?></td>
-                                <td><?= $users->jenis_kelamin ?></td>
-                                <td><?= $users->nama_kelas ?></td>
-
+                                <td><?= $kelas->nama_kelas ?></td>
                                 <td>
-                                    <a href="<?= site_url('admin/edit_siswa/' . $users->id_siswa) ?>" class="btn btn-success">Edit</a>
-                                    <button onclick="hapus(<?php echo $users->id_siswa; ?>)" class="btn btn-danger">Delete</button>
+                                    <a href="<?= site_url('admin/edit_kelas/' . $kelas->id_kelas) ?>" class="btn btn-success">Edit</a>
+                                    <button onclick="hapus(<?php echo $kelas->id_kelas; ?>)" class="btn btn-danger">Delete</button>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -59,12 +49,34 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Form Tambah Kelas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="<?= site_url('admin/add_kelas') ?>" method="post">
+                        <label>Nama Kelas:</label>
+                        <input type="text" name="nama_kelas" class="form-control" id="exampleLastName" required>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <input type="submit" name="save" class="btn btn-primary" value="Tambah Kelas" />
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
 </div>
 <script>
-    function hapus(id) {
+    function hapus(id_kelas) {
         Swal.fire({
-            title: 'Yakin menghapus Data Siswa?',
+            title: 'Yakin menghapus Data Kelas?',
             text: "Data yang sudah dihapus tidak dapat dikembalikan!",
             icon: 'warning',
             showCancelButton: true,
@@ -75,15 +87,15 @@
             if (result.value) {
                 Swal.fire({
                     title: 'Terhapus!',
-                    text: 'Data Siswa berhasil dihapus.',
+                    text: 'Data Kelas berhasil dihapus.',
                     icon: 'success',
                     showConfirmButton: false
                 });
                 $.ajax({
                     type: "POST",
-                    url: "<?= site_url('admin/delete_siswa') ?>", //url function delete in controller
+                    url: "<?= site_url('admin/delete_kelas') ?>", //url function delete in controller
                     data: {
-                        id: id //id get from button delete
+                        id_kelas: id_kelas //id get from button delete
                     },
                     success: function(data) { //when success will reload page after 3 second
                         window.setTimeout(function() {
@@ -99,7 +111,7 @@
         Swal.fire({
             icon: 'success',
             title: 'Success...',
-            text: 'Data Berhasil diedit'
+            text: 'Data Berhasil Ditambahkan'
         })
     <?php } ?>
 

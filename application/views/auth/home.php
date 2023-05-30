@@ -33,29 +33,17 @@
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
                         <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image" style="background-image: url('<?= base_url('uploads/hero-image.jpeg') ?>');"></div>
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image" style="background-image: url('<?= base_url('uploads/logo.png') ?>'); background-size: auto;"></div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
-                                        <h1 class="h4 text-gray-900 mb-4">Login Admin</h1>
+                                        <h1 class="h4 text-gray-900 mb-4">Pilih Menu</h1>
                                     </div>
-                                    <?php echo $this->session->flashdata('message'); ?>
-                                    <form class="user" method="post" action="<?= site_url('auth/login_admin') ?>">
-                                        <div class="form-group">
-                                            <input type="text" name="username" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Username...">
-                                        </div>
-                                        <div class="form-group">
-                                            <input type="password" name="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">
-                                        </div>
-                                        <div class="form-group">
-                                            <div class="custom-control custom-checkbox small">
-                                                <input type="checkbox" class="custom-control-input" id="customCheck" onclick="myFunction()">
-                                                <label class="custom-control-label" for="customCheck">Show Password</label>
-                                            </div>
-                                        </div>
-                                        <input type="submit" value="Login" class="btn btn-primary btn-user btn-block">
-                                        <hr>
-                                    </form>
+                                    <a href="<?= site_url('auth/siswa') ?>" class="btn btn-primary btn-user btn-block">Login Siswa</a>
+                                    <a href="<?= site_url('auth/guru') ?>" class="btn btn-primary btn-user btn-block">Login Guru</a>
+                                    <a href="<?= site_url('auth/admin') ?>" class="btn btn-primary btn-user btn-block">Login Admin</a>
+                                    <hr>
+
                                 </div>
                             </div>
                         </div>
