@@ -41,6 +41,7 @@
                                 <td>
                                     <a href="<?= site_url('admin/edit_kelas/' . $kelas->id_kelas) ?>" class="btn btn-success">Edit</a>
                                     <button onclick="hapus(<?php echo $kelas->id_kelas; ?>)" class="btn btn-danger">Delete</button>
+                                    <a href="<?= site_url('admin/detail_kelas/' . $kelas->id_kelas) ?>" class="btn btn-warning">Detail Kelas</a>
                                 </td>
                             </tr>
                         <?php } ?>
@@ -62,6 +63,12 @@
                     <form action="<?= site_url('admin/add_kelas') ?>" method="post">
                         <label>Nama Kelas:</label>
                         <input type="text" name="nama_kelas" class="form-control" id="exampleLastName" required>
+                        <label class="mt-3">Wali Kelas:</label>
+                        <select class="form-control" name="id_guru">
+                            <?php foreach ($guru as $guru) { ?>
+                                <option value="<?= $guru->id_guru ?>"><?= $guru->nama_guru ?></option>
+                            <?php } ?>
+                        </select>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>

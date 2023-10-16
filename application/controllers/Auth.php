@@ -68,12 +68,13 @@ class Auth extends CI_Controller
             if ($password == $user->password) { // Jika password yang diinput sama dengan password yang didatabase
                 $session = array(
                     'authenticated' => true,
-                    'id' => $user->id,
+                    'id_guru' => $user->id_guru,
                     'nama_guru' => $user->nama_guru, // Buat session authenticated dengan value true
                     'nip' => $user->nip,  // Buat session username
                     'email' => $user->email,
                     'password' => $user->password,
                     'jenis_kelamin' => $user->jenis_kelamin,
+                    'jabatan' => $user->jabatan,
                     'status' => "login",
                     'is_login' => true // Buat session authenticated
                 );

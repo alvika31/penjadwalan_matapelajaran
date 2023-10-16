@@ -185,4 +185,46 @@ class Admin_model extends CI_Model
         $this->db->where('id', $id);
         $this->db->update('admin', $data);
     }
+
+    function detailKelas($id_kelas)
+    {
+        $this->db->select('*');
+        $this->db->from('siswa');
+        $this->db->join('kelas', 'kelas.id_kelas = siswa.id_kelas');
+        $this->db->where('siswa.id_kelas', $id_kelas);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    function namaKelas($id_kelas)
+    {
+        $this->db->select('*');
+        $this->db->from('kelas');
+        $this->db->join('guru', 'guru.id_guru = kelas.id_guru');
+        $this->db->where('kelas.id_kelas', $id_kelas);
+        $query = $this->db->get();
+        return $query->row_array();
+        // return $this->db->get_where('kelas', ['id_kelas' => $id_kelas])
+        //     ->row_array();
+    }
+
+    function jumlah_kelas_siswa($id_kelas)
+    {
+        $this->db->select('*');
+        $this->db->from('siswa');
+        $this->db->join('kelas', 'kelas.id_kelas = siswa.id_kelas');
+        $this->db->where('siswa.id_kelas', $id_kelas);
+        $query = $this->db->get();
+        $total_rows = $query->num_rows();
+        return $total_rows;
+    }
+
+    function getWaliKelas()
+    {
+        $this->db->select('*');
+        $this->db->from('guru');
+        $this->db->where('jabatan', 'Wali Kelas');
+        $query = $this->db->get();
+        return $query;
+    }
 }

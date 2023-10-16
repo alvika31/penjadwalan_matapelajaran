@@ -25,8 +25,9 @@ class Admin extends CI_Controller
     {
         $data = [
             'title' => 'Halaman Home Admin',
-            'siswa' => $this->Admin_model->allsiswa()->result()
+            'siswa' => $this->Admin_model->allsiswa()->result(),
         ];
+
 
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
@@ -73,8 +74,10 @@ class Admin extends CI_Controller
     {
         $data = [
             'title' => 'Halaman List Kelas',
-            'kelas' => $this->Admin_model->allkelas()->result()
+            'kelas' => $this->Admin_model->allkelas()->result(),
+            'guru' => $this->Admin_model->getWaliKelas()->result()
         ];
+
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/list_kelas', $data);
@@ -86,8 +89,9 @@ class Admin extends CI_Controller
         if ($this->input->post('save')) {
             $data = [
                 'nama_kelas' => $this->input->post('nama_kelas'),
-
+                'id_guru' => $this->input->post('id_guru'),
             ];
+
             $this->Admin_model->addKelas($data);
             $this->session->set_flashdata('success', 'Siswa Berhasil ditambahkan');
             redirect('admin/list_kelas');
@@ -106,6 +110,7 @@ class Admin extends CI_Controller
 
             'title' => 'Halaman Edit User',
             'kelas' => $this->Admin_model->getIdKelas($id),
+            'guru' => $this->Admin_model->getWaliKelas()->result()
         ];
 
         $this->load->view('admin/header', $data);
@@ -119,10 +124,11 @@ class Admin extends CI_Controller
         $data = [
 
             'nama_kelas' => $this->input->post('nama_kelas'),
+            'id_guru' => $this->input->post('id_guru'),
 
         ];
 
-        $id = $this->input->post('id');
+        $id = $this->input->post('id_kelas');
         $result = $this->Admin_model->update_kelas($data, $id);
 
         if ($result = TRUE) {
@@ -458,5 +464,20 @@ class Admin extends CI_Controller
             $this->session->set_flashdata('error', 'Siswa Gagal diedit');
             redirect('admin/my_profile');
         }
+    }
+
+    function detail_kelas($id_kelas)
+    {
+        $data = [
+            'title' => 'Halaman Detail Kelas',
+            'detail_kelas' => $this->Admin_model->detailKelas($id_kelas)->result(),
+            'kelas' => $this->Admin_model->namaKelas($id_kelas),
+            'jumlah_kelas'  => $this->Admin_model->jumlah_kelas_siswa($id_kelas),
+        ];
+
+        $this->load->view('admin/header', $data);
+        $this->load->view('admin/sidebar', $data);
+        $this->load->view('admin/detail_kelas', $data);
+        $this->load->view('admin/footer', $data);
     }
 }

@@ -1,5 +1,5 @@
   <!-- Sidebar -->
-  <ul class="navbar-nav sidebar sidebar-white accordion" style="backgroud-color:white" id="accordionSidebar">
+  <ul class="navbar-nav sidebar sidebar-white accordion" style="background-color:white" id="accordionSidebar">
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="<?= site_url('Dashboard') ?>">
@@ -102,8 +102,8 @@
 
                   <!-- Nav Item - Messages -->
                   <li class="nav-item dropdown no-arrow mx-1">
-                      <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <i class="fas fa-envelope fa-fw" style="color:#FF3600"></i>
+                      <a class="nav-link dropdown-toggle text-dark" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Role Akun: Admin
                           <!-- Counter - Messages -->
 
                       </a>

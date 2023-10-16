@@ -4,7 +4,7 @@
 
      <!-- Page Heading -->
 
-     <h1 class="h3 mb-2 text-gray-800">Registrasi Akun Siswa</h1>
+     <h1 class="h3 mb-2 text-gray-800">Edit Kelas</h1>
      <?php if (validation_errors()) { ?>
          <div class="alert alert-danger" role="alert">
              <?= validation_errors(); ?>
@@ -14,7 +14,7 @@
      <!-- DataTales Example -->
      <div class="card shadow mb-4 mt-3">
          <div class="card-header py-3">
-             <h6 class="m-0 font-weight-bold text-danger">Form Registrasi Siswa</h6>
+             <h6 class="m-0 font-weight-bold text-danger">Form Edit Kelas</h6>
          </div>
          <div class="px-5 pb-4">
              <form method="post" class="user" action="<?= site_url('admin/update_kelas') ?>">
@@ -23,6 +23,16 @@
                          <label>Nama Kelas:</label>
                          <input type="text" name="nama_kelas" class="form-control" id="exampleFirstName" value="<?= $kelas['nama_kelas'] ?>" required>
                          <input type="hidden" name="id_kelas" class="form-control" id="exampleFirstName" value="<?= $kelas['id_kelas'] ?>" required>
+                     </div>
+                     <div class="col-sm-12 mb-3 mb-sm-0 mt-4">
+                         <label>Wali Kelas:</label>
+
+                         <select class="form-control" name="id_guru">
+                             <?php foreach ($guru as $guru) { ?>
+                                 <option value="<?= $guru->id_guru ?>" <?= $kelas['id_guru'] == $guru->id_guru ? 'selected' : '' ?>><?= $guru->nama_guru ?></option>
+                             <?php } ?>
+                         </select>
+
                      </div>
 
                  </div>
