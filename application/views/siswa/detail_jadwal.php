@@ -28,6 +28,7 @@
                              <p class="card-text">Jam: <?= $jadwal->jam_awal ?> - <?= $jadwal->jam_selesai ?></p>
                              <p class="card-text">Kelas: <?= $jadwal->nama_kelas ?></p>
                              <p class="card-text">Ruangan: <?= $jadwal->nama_ruangan ?></p>
+                             <p class="card-text">Guru: <?= $jadwal->nama_guru ?></p>
                          </div>
                      </div>
                  </div>

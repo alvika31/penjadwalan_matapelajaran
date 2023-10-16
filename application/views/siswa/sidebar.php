@@ -11,7 +11,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-          <a class="nav-link" href="<?= site_url('dashboard') ?>">
+          <a class="nav-link" href="<?= site_url('siswa') ?>">
               <i class="fas fa-fw fa-tachometer-alt"></i>
               <span>Dashboard</span></a>
       </li>
@@ -25,45 +25,16 @@
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item <?= ($title === 'Halaman List User' || $title === 'Halaman Register') ? 'active' : '' ?>">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
-              <i class="fas fa-solid fa-user"></i>
-              <span>Users</span>
-          </a>
-          <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">User Page</h6>
-                  <a class="collapse-item <?= ($title === 'Halaman List User') ? 'active' : '' ?>" href="<?= site_url('dashboard/list_user') ?>">List User</a>
-                  <a class="collapse-item <?= ($title === 'Halaman Register') ? 'active' : '' ?>" href="<?= site_url('dashboard/register') ?>">Register User</a>
-              </div>
-          </div>
-      </li>
 
-      <!-- Nav Item - Utilities Collapse Menu -->
-      <li class="nav-item <?= ($title === 'Halaman List Pelayanan' || $title === 'Halaman Tambah Pelayanan') ? 'active' : '' ?>">
-          <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
-              <i class="fas fa-solid fa-paper-plane"></i>
-
-              <span>Pelayanan</span>
-          </a>
-          <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
-              <div class="bg-white py-2 collapse-inner rounded">
-                  <h6 class="collapse-header">Pelayanan</h6>
-                  <a class="collapse-item <?= ($title === 'Halaman List Pelayanan') ? 'active' : '' ?>" href="<?= site_url('dashboard/listkategoripelayanan') ?>">List Pelayanan</a>
-                  <a class="collapse-item <?= ($title === 'Halaman Tambah Pelayanan') ? 'active' : '' ?>" href="<?= site_url('dashboard/addPelayanan') ?>">Tambah Pelayanan</a>
-
-              </div>
-          </div>
-      </li>
       <li class="nav-item <?= ($title === 'Halaman List Konsultasi Costumer') ? 'active' : '' ?>">
-          <a class="nav-link" href="<?= site_url('dashboard/konsultasicostumer') ?>">
+          <a class="nav-link" href="<?= site_url('siswa/jadwalsaya') ?>">
               <i class="fas fa-solid fa-user-tie"></i>
-              <span>Konsultasi Custumer</span></a>
+              <span>Jadwal Pelajaran</span></a>
       </li>
       <li class="nav-item">
-          <a class="nav-link" href="<?= site_url('Page') ?>" target="_blank">
+          <a class="nav-link" href="<?= site_url('siswa/rapot_saya') ?>">
               <i class="fas fa-solid fa-link"></i>
-              <span>View Website</span></a>
+              <span>Rapot Saya</span></a>
       </li>
 
       <!-- Divider -->

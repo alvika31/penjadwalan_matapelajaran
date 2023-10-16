@@ -10,7 +10,7 @@
              <?= validation_errors(); ?>
          </div>
      <?php } ?>
-
+     <?php echo $this->session->flashdata('message'); ?>
      <!-- DataTales Example -->
      <div class="card shadow mb-4 mt-3">
          <div class="card-header py-3">
@@ -18,20 +18,73 @@
          </div>
          <div class="px-5 pb-4 mt-4 row">
 
-             <?php $i = 1;
-                foreach ($siswa as $siswa) { ?>
-                 <div class="col-3">
-                     <div class="card">
-                         <h5 class="card-header"><?= $siswa->nama_lengkap ?></h5>
-                         <div class="card-body">
-                             <h5 class="card-title">Nis: <?= $siswa->nis ?></h5>
-                             <p class="card-text">Email: <?= $siswa->email ?></p>
-                             <p class="card-text">Jenis Kelamin: <?= $siswa->jenis_kelamin ?></p>
-                         </div>
-                     </div>
-                 </div>
 
-             <?php } ?>
+             <div class="col-6 mt-4">
+                 <h5>Siswa Belum Dikirim Rapot</h5>
+                 <table class="table">
+                     <thead>
+
+                         <tr>
+                             <th scope="col">#</th>
+                             <th scope="col">Nama Lengkap</th>
+                             <th scope="col">Nis</th>
+                             <th scope="col">Email</th>
+                             <th scope="col">Jenis Kelamin</th>
+                             <th scope="col">Action</th>
+
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <?php $i = 1;
+                            foreach ($siswa as $siswa) { ?>
+                             <tr>
+                                 <th scope="row"><?= $i++ ?></th>
+                                 <td><?= $siswa->nama_lengkap ?></td>
+                                 <td><?= $siswa->nis ?></td>
+                                 <td><?= $siswa->email ?></td>
+                                 <td><?= $siswa->jenis_kelamin ?></td>
+                                 <td> <a href="<?= site_url('guru/tambah_rapot/' . $siswa->id_siswa) ?>" class="btn btn-success">Tambah Rapot</a></td>
+
+                             </tr>
+                         <?php } ?>
+                     </tbody>
+                 </table>
+
+             </div>
+             <div class="col-6 mt-4">
+                 <h5>Siswa Sudah Dikirim Rapot</h5>
+                 <table class="table">
+                     <thead>
+
+                         <tr>
+                             <th scope="col">#</th>
+                             <th scope="col">Nama Lengkap</th>
+                             <th scope="col">Nis</th>
+                             <th scope="col">Email</th>
+                             <th scope="col">Jenis Kelamin</th>
+                             <th scope="col">Action</th>
+
+                         </tr>
+                     </thead>
+                     <tbody>
+                         <?php $i = 1;
+                            foreach ($siswa_rapot as $siswa) { ?>
+                             <tr>
+                                 <th scope="row"><?= $i++ ?></th>
+                                 <td><?= $siswa->nama_lengkap ?></td>
+                                 <td><?= $siswa->nis ?></td>
+                                 <td><?= $siswa->email ?></td>
+                                 <td><?= $siswa->jenis_kelamin ?></td>
+                                 <td> <a href="<?= site_url('guru/detail_rapot/' . $siswa->id_siswa) ?>" class="btn btn-primary">Lihat Rapot</a></td>
+
+                             </tr>
+                         <?php } ?>
+                     </tbody>
+                 </table>
+
+             </div>
+
+
 
 
 

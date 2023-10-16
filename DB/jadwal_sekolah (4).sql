@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost:3306
--- Waktu pembuatan: 16 Okt 2023 pada 21.32
--- Versi server: 10.6.15-MariaDB-cll-lve
--- Versi PHP: 8.1.16
+-- Host: 127.0.0.1
+-- Waktu pembuatan: 16 Okt 2023 pada 20.11
+-- Versi server: 10.4.27-MariaDB
+-- Versi PHP: 8.1.12
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `alvi2429_jadwal`
+-- Database: `jadwal_sekolah`
 --
 
 -- --------------------------------------------------------
@@ -164,9 +164,18 @@ CREATE TABLE `rapot` (
   `id_rapot` int(11) NOT NULL,
   `id_guru` int(11) NOT NULL,
   `id_kelas` int(11) NOT NULL,
+  `id_siswa` int(11) NOT NULL,
   `tanggal` date NOT NULL,
-  `file` varchar(255) NOT NULL
+  `file` varchar(255) NOT NULL,
+  `keterangan` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `rapot`
+--
+
+INSERT INTO `rapot` (`id_rapot`, `id_guru`, `id_kelas`, `id_siswa`, `tanggal`, `file`, `keterangan`) VALUES
+(14, 15, 3, 1, '2023-10-16', 'AHMAD FADILAH_0002201.pdf', 'Anda Rangking 1');
 
 -- --------------------------------------------------------
 
@@ -216,7 +225,7 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_siswa`, `nama_lengkap`, `nis`, `email`, `password`, `jenis_kelamin`, `id_kelas`) VALUES
-(1, 'AHMAD FADILAH', '0002201', 'ahmad@gmail.com', '11e01fc6fbe051e7074e594784e44519', 'Pria', 3),
+(1, 'AHMAD FADILAH', '0002201', 'ahmad@gmail.com', '90855392ab53cc4bdcd5e0aa2fa2cdce', 'Pria', 3),
 (4, 'AINUR NAVIDA', '0002202', 'ainur@gmail.com', 'c26820b8a4c1b3c2aa868d6d57e14a79', 'Wanita', 3),
 (6, 'ANANDA HAFIDZ PRATAMA', '0002203', 'ananda@gmail.com', '6e17a5fd135fcaf4b49f2860c2474c7c', 'Pria', 3),
 (7, 'ANANTA ABDUL', '0002204', 'ananta@gmail.com', 'b151ce4935a3c2807e1dd9963eda16d8', 'Pria', 3),
@@ -391,7 +400,7 @@ ALTER TABLE `mata_pelajaran`
 -- AUTO_INCREMENT untuk tabel `rapot`
 --
 ALTER TABLE `rapot`
-  MODIFY `id_rapot` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_rapot` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT untuk tabel `ruangan`

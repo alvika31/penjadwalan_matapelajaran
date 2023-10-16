@@ -4,7 +4,7 @@
 
      <!-- Page Heading -->
 
-
+     <h1 class="h3 mb-2 text-gray-800"><?= $guru['nama_kelas'] ?>. Wali Kelas: <?= $guru['nama_guru'] ?></h1>
      <?php if (validation_errors()) { ?>
          <div class="alert alert-danger" role="alert">
              <?= validation_errors(); ?>
@@ -14,33 +14,31 @@
      <!-- DataTales Example -->
      <div class="card shadow mb-4 mt-3">
          <div class="card-header py-3">
-             <?= $this->session->userdata('nama_guru') ?>
+             <h6 class="m-0 font-weight-bold text-danger">Jumlah Siswa: <?= $jumlah_siswa ?> Orang</h6>
          </div>
          <div class="px-5 pb-4 mt-4 row">
 
              <?php $i = 1;
-                foreach ($jadwal as $jadwal) { ?>
+                foreach ($siswa as $siswa) { ?>
                  <div class="col-3 mt-4">
                      <div class="card">
-                         <h5 class="card-header"><?= $jadwal->nama_pelajaran ?></h5>
+                         <h5 class="card-header"><?= $siswa->nama_lengkap ?></h5>
                          <div class="card-body">
-                             <p class="card-text">Hari: <?= $jadwal->hari ?></p>
-                             <p class="card-text">Jam: <?= $jadwal->jam_awal ?> - <?= $jadwal->jam_selesai ?></p>
-                             <p class="card-text">Kelas: <?= $jadwal->nama_kelas ?></p>
-                             <p class="card-text">Ruangan: <?= $jadwal->nama_ruangan ?></p>
+                             <h5 class="card-title">Nis: <?= $siswa->nis ?></h5>
+                             <p class="card-text">Email: <?= $siswa->email ?></p>
+                             <p class="card-text">Jenis Kelamin: <?= $siswa->jenis_kelamin ?></p>
                          </div>
                      </div>
                  </div>
 
              <?php } ?>
 
+
+
+
          </div>
+
      </div>
-     <?php if (!$jadwal) { ?>
-         <div class="alert alert-danger" role="alert">
-             Data Jadwal Belum Ada!
-         </div>
-     <?php } ?>
  </div>
 
  </div>

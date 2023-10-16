@@ -11,7 +11,7 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-          <a class="nav-link" href="<?= site_url('admin') ?>">
+          <a class="nav-link" href="<?= site_url('guru') ?>">
               <i class="fas fa-fw fa-tachometer-alt" style="color:#FF3600"></i>
               <span style="color:black">Dashboard</span></a>
       </li>
@@ -36,6 +36,13 @@
               <a class="nav-link" href="<?= site_url('guru/list_siswa_by_wali') ?>">
                   <i class="fas fa-solid fa-link" style="color:#FF3600"></i>
                   <span style="color:black">Siswa</span></a>
+          </li>
+      <?php } ?>
+      <?php if ($this->session->userdata('jabatan') == 'Wali Kelas') { ?>
+          <li class="nav-item">
+              <a class="nav-link" href="<?= site_url('guru/rapot') ?>">
+                  <i class="fas fa-solid fa-book" style="color:#FF3600"></i>
+                  <span style="color:black">Rapot</span></a>
           </li>
       <?php } ?>
 
