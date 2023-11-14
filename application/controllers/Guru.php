@@ -75,7 +75,7 @@ class Guru extends CI_Controller
         $id_guru =  $this->session->userdata('id_guru');
         $data = [
             'title' => 'Halaman Tambah Rapot',
-            'siswa' => $this->Guru_model->get_siswa_by_wali_not_rapot($id_guru)->result(),
+            'siswa' => $this->Guru_model->get_siswa_by_id($id)->result(),
             'guru' => $this->Guru_model->get_guru($id_guru)->row_array(),
             'jumlah_siswa' => $this->Guru_model->jumlah_siswa_by_wali($id_guru),
             'kelas' => $this->Guru_model->get_kelas($id_guru)->row_array(),

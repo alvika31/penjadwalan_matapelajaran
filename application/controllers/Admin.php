@@ -16,6 +16,10 @@ class Admin extends CI_Controller
         $data = [
             'title' => 'Halaman Home Admin'
         ];
+        $data['countguru'] = $this->Admin_model->get_countguru();
+        $data['countsiswa'] = $this->Admin_model->get_countsiswa();
+        $data['countkelas'] = $this->Admin_model->get_countkelas();
+        $data['countruangan'] = $this->Admin_model->get_countruangan();
         $this->load->view('admin/header', $data);
         $this->load->view('admin/sidebar', $data);
         $this->load->view('admin/home', $data);

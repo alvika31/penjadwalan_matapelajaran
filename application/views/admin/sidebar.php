@@ -12,7 +12,7 @@
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
           <a class="nav-link" href="<?= site_url('admin') ?>">
-              <i class="fas fa-fw fa-tachometer-alt" style="color:#FF3600"></i>
+            <i class="fa fa-home" style="color:#FF3600" aria-hidden="true"></i>
               <span style="color:black">Dashboard</span></a>
       </li>
 
@@ -21,13 +21,13 @@
 
       <!-- Heading -->
       <div class="sidebar-heading">
-          Interface
+          Pages
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item <?= ($title === 'Halaman List Konsultasi Costumer') ? 'active' : '' ?>">
           <a class="nav-link" href="<?= site_url('admin/list_siswa') ?>">
-              <i class="fas fa-solid fa-user-tie" style="color:#FF3600"></i>
+          <i class="fa fa-graduation-cap" style="color:#FF3600" aria-hidden="true"></i>
               <span style="color:black">Siswa</span></a>
       </li>
 
@@ -40,17 +40,17 @@
       </li>
       <li class="nav-item <?= ($title === 'Halaman List Konsultasi Costumer') ? 'active' : '' ?>">
           <a class="nav-link" href="<?= site_url('admin/list_kelas') ?>">
-              <i class="fas fa-solid fa-user-tie" style="color:#FF3600"></i>
+          <i class="fas fa-solid fa-door-closed" style="color:#FF3600"></i>
               <span style="color:black">Kelas</span></a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="<?= site_url('admin/list_ruangan') ?>">
-              <i class="fas fa-solid fa-link" style="color:#FF3600"></i>
+          <i class="fas fa-solid fa-door-open" style="color:#FF3600"></i>
               <span style="color:black">Ruangan</span></a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="<?= site_url('admin/list_jadwal_pelajaran') ?>">
-              <i class="fas fa-solid fa-link" style="color:#FF3600"></i>
+          <i class="fas fa-solid fa-clipboard" style="color:#FF3600"></i>
               <span style="color:black">Jadwal Mata Pelajaran</span></a>
       </li>
 
@@ -102,8 +102,8 @@
 
                   <!-- Nav Item - Messages -->
                   <li class="nav-item dropdown no-arrow mx-1">
-                      <a class="nav-link dropdown-toggle text-dark" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          Role Akun: Admin
+                      <a class="nav-link dropdown-toggle text-white" href="#" id="messagesDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <span class="badge badge-pill p-2" style="background-image: linear-gradient(to right, #ff704d , #ff471a);">Role Akun: Admin</span>
                           <!-- Counter - Messages -->
 
                       </a>
@@ -117,17 +117,17 @@
                   <!-- Nav Item - User Information -->
                   <li class="nav-item dropdown no-arrow">
                       <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          <span class="mr-2 d-none d-lg-inline text-gray-600 small">Hallo, <?= $this->session->userdata('nama_admin'); ?></span><i class="fas fa-solid fa-caret-down"></i>
+                          <i class="fas fa-solid fa-bars" style="color:red"></i>
                       </a>
                       <!-- Dropdown - User Information -->
                       <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                           <a class="dropdown-item" href="<?= site_url('admin/my_profile') ?>">
-                              <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400" style="color:#FF3600"></i>
+                              <i class="fas fa-user fa-sm fa-fw mr-2" style="color:#ff471a"></i>
                               Profile
                           </a>
                           <div class="dropdown-divider"></div>
                           <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400" style="color:#FF3600"></i>
+                              <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2" style="color:#ff471a"></i>
                               Logout
                           </a>
                       </div>

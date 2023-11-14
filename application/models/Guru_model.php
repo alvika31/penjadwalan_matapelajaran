@@ -26,13 +26,23 @@ class Guru_model extends CI_Model
 
     function get_siswa_by_wali_not_rapot($id_guru)
     {
+        // Subquery untuk mendapatkan id_siswa dari tabel rapot
+        $this->db->select('id_siswa');
+        $this->db->from('rapot');
+        $id_siswa_rapot = $this->db->get()->result_array();
+
+        // Mengambil array dari hasil subquery
+        $id_siswa_rapot_array = array_column($id_siswa_rapot, 'id_siswa');
+
+        // Query utama untuk mendapatkan siswa yang bukan di dalam tabel rapot
         $this->db->select('*');
         $this->db->from('siswa');
         $this->db->join('kelas', 'kelas.id_kelas = siswa.id_kelas');
         $this->db->join('guru', 'guru.id_guru = kelas.id_guru');
-        $this->db->join('rapot', 'rapot.id_siswa != siswa.id_siswa');
+        $this->db->where_not_in('siswa.id_siswa', $id_siswa_rapot_array);
         $this->db->where('kelas.id_guru', $id_guru);
         $query = $this->db->get();
+
         return $query;
     }
 
@@ -98,6 +108,15 @@ class Guru_model extends CI_Model
         $this->db->join('guru', 'guru.id_guru = kelas.id_guru');
         $this->db->join('rapot', 'rapot.id_siswa = siswa.id_siswa');
         $this->db->where('rapot.id_siswa', $id_siswa);
+        $query = $this->db->get();
+        return $query;
+    }
+
+    function get_siswa_by_id($id)
+    {
+        $this->db->select('*');
+        $this->db->from('siswa');
+        $this->db->where('siswa.id_siswa', $id);
         $query = $this->db->get();
         return $query;
     }

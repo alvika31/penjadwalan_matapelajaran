@@ -14,7 +14,7 @@
      <!-- DataTales Example -->
      <div class="card shadow mb-4 mt-3">
          <div class="card-header py-3">
-             <?= $this->session->userdata('nama_guru') ?>
+            Jadwal Pelajaran <?= $this->session->userdata('nama_guru') ?>
          </div>
          <div class="px-5 pb-4 mt-4 row">
 

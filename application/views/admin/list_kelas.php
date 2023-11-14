@@ -4,34 +4,25 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger">List Kelas</h6>
+            <h3 class="m-0 font-weight-bold text-danger">List Kelas
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="float:right"><i class="fa fa-plus-circle" aria-hidden="true"></i> 
+                Tambah Kelas
+            </button>
+            </h3>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
-                    <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#exampleModal">
-                        Tambah Kelas
-                    </button>
-                    <thead>
+                    <thead style="background-color:#ff471a; color:white">
                         <tr>
                             <th>No</th>
                             <th>Nama Kelas</th>
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tfoot>
-
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Kelas</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                         <?php $i = 1;
                         foreach ($kelas as $kelas) { ?>
@@ -39,9 +30,9 @@
                                 <td><?= $i++; ?></td>
                                 <td><?= $kelas->nama_kelas ?></td>
                                 <td>
-                                    <a href="<?= site_url('admin/edit_kelas/' . $kelas->id_kelas) ?>" class="btn btn-success">Edit</a>
-                                    <button onclick="hapus(<?php echo $kelas->id_kelas; ?>)" class="btn btn-danger">Delete</button>
-                                    <a href="<?= site_url('admin/detail_kelas/' . $kelas->id_kelas) ?>" class="btn btn-warning">Detail Kelas</a>
+                                    <a href="<?= site_url('admin/edit_kelas/' . $kelas->id_kelas) ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                    <button onclick="hapus(<?php echo $kelas->id_kelas; ?>)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                    <a href="<?= site_url('admin/detail_kelas/' . $kelas->id_kelas) ?>" class="btn btn-outline-primary"><i class="fas fa-solid fa-info"></i> Detail Kelas</a>
                                 </td>
                             </tr>
                         <?php } ?>

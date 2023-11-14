@@ -17,9 +17,9 @@
              <h6 class="m-0 font-weight-bold text-danger">Form Registrasi Siswa</h6>
          </div>
          <div class="px-5 pb-4">
-             <h5 class="mt-4">Note: Password sama dengan NIS</h5>
+             
              <form method="post" class="user" action="<?= site_url('admin/do_add_siswa') ?>">
-                 <div class="form-group row">
+                 <div class="form-group row mt-4">
                      <div class="col-sm-6 mb-3 mb-sm-0">
                          <label>Nama Lengkap:</label>
                          <input type="text" name="nama_lengkap" class="form-control" id="exampleFirstName" required>
@@ -60,7 +60,7 @@
                  <input type="submit" value="Registrasi Akun" name="save" class="btn btn-danger btn-user">
 
                  <hr>
-
+                 <i>Note: Password sama dengan NIS</i>
              </form>
          </div>
 

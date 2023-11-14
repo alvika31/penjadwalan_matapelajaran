@@ -10,6 +10,34 @@ class Admin_model extends CI_Model
         return $query;
     }
 
+    public function get_countguru()
+	{
+		$sql = "SELECT count(nama_guru) as nama_guru FROM guru";
+		$result = $this->db->query($sql);
+		return $result->row()->nama_guru;
+	}
+
+    public function get_countsiswa()
+	{
+		$sql = "SELECT count(nama_lengkap) as nama_lengkap FROM siswa";
+		$result = $this->db->query($sql);
+		return $result->row()->nama_lengkap;
+	}
+
+    public function get_countkelas()
+	{
+		$sql = "SELECT count(nama_kelas) as nama_kelas FROM kelas";
+		$result = $this->db->query($sql);
+		return $result->row()->nama_kelas;
+	}
+
+    public function get_countruangan()
+	{
+		$sql = "SELECT count(nama_ruangan) as nama_ruangan FROM ruangan";
+		$result = $this->db->query($sql);
+		return $result->row()->nama_ruangan;
+	}
+
     function insertSiswa($data)
     {
         $result = $this->db->insert('siswa', $data);

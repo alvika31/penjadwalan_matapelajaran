@@ -20,7 +20,7 @@
 
              <?php $i = 1;
                 foreach ($detail_kelas as $siswa) { ?>
-                 <div class="col-3">
+                 <div class="col-3 mt-4">
                      <div class="card">
                          <h5 class="card-header"><?= $siswa->nama_lengkap ?></h5>
                          <div class="card-body">

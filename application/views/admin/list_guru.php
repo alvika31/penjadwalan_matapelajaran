@@ -4,17 +4,17 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger">List Guru</h6>
+            <h3 class="m-0 font-weight-bold text-danger">List Guru
+            <a href="<?= site_url('admin/add_guru') ?>" class="btn btn-danger" style="float:right"><i class="fa fa-plus-circle" aria-hidden="true"></i> Tambah Guru</a>
+            </h3>
         </div>
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                    <a href="<?= site_url('admin/add_guru') ?>" type="button" class="btn btn-primary mb-4">Tambah Guru</a>
-                    <thead>
+                    <thead style="background-color:#ff471a; color:white">
                         <tr>
                             <th>No</th>
                             <th>Nama Lengkap</th>
@@ -25,18 +25,6 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tfoot>
-
-                        <tr>
-                            <th>No</th>
-                            <th>Nama Lengkap</th>
-                            <th>NIP</th>
-                            <th>Email</th>
-                            <th>Jenis Kelamin</th>
-                            <th>Jabatan</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                         <?php $i = 1;
                         foreach ($guru as $users) { ?>
@@ -48,8 +36,8 @@
                                 <td><?= $users->jenis_kelamin ?></td>
                                 <td><?= $users->jabatan ?></td>
                                 <td>
-                                    <a href="<?= site_url('admin/edit_guru/' . $users->id_guru) ?>" class="btn btn-success">Edit</a>
-                                    <button onclick="hapus(<?php echo $users->id_guru; ?>)" class="btn btn-danger">Delete</button>
+                                    <a href="<?= site_url('admin/edit_guru/' . $users->id_guru) ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                    <button onclick="hapus(<?php echo $users->id_guru; ?>)" class="btn btn-danger"><i class="fa fa-trash" aria-hidden="true"></i></button>
                                 </td>
                             </tr>
                         <?php } ?>

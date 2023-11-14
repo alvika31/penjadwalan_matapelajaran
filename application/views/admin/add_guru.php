@@ -17,26 +17,25 @@
              <h6 class="m-0 font-weight-bold text-danger">Form Registrasi Guru</h6>
          </div>
          <div class="px-5 pb-4">
-             <h5 class="mt-4">Note: Password sama dengan NIP</h5>
              <form method="post" class="user" action="<?= site_url('admin/do_add_guru') ?>">
-                 <div class="form-group row">
+                 <div class="form-group row mt-4">
                      <div class="col-sm-6 mb-3 mb-sm-0">
-                         <label>Nama Lengkap:</label>
+                         <label>Nama Lengkap</label>
                          <input type="text" name="nama_guru" class="form-control" id="exampleFirstName" required>
 
                      </div>
                      <div class="col-sm-6">
-                         <label>NIP:</label>
+                         <label>NIP</label>
                          <input type="text" name="nip" class="form-control" id="exampleLastName" required>
                      </div>
                  </div>
                  <div class="form-group row">
                      <div class="col-sm-6 mb-3 mb-sm-0">
-                         <label>Email:</label>
+                         <label>Email</label>
                          <input type="text" name="email" class="form-control" id="exampleInputEmail" required>
                      </div>
                      <div class="col-sm-6 mb-3 mb-sm-0">
-                         <label>Jenis Kelamin:</label>
+                         <label>Jenis Kelamin</label>
                          <select class="form-control" name="jenis_kelamin" required>
                              <option value="">=========Pilih Jenis Kelamin===========</option>
                              <option value="Pria">Pria</option>
@@ -48,7 +47,7 @@
                  </div>
                  <div class="form-group row">
                      <div class="col-sm-12 mb-3 mb-sm-0">
-                         <label>Jabatan:</label>
+                         <label>Jabatan</label>
                          <select class="form-control" name="jabatan" required>
                              <option value="Wali Kelas">Wali Kelas</option>
                              <option value="Pengajar">Pengajar</option>
@@ -60,7 +59,7 @@
                  <input type="submit" value="Registrasi Akun" name="save" class="btn btn-danger btn-user">
 
                  <hr>
-
+                 <i>Note: Password sama dengan NIP</i>
              </form>
          </div>
 

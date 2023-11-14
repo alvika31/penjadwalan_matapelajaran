@@ -4,20 +4,19 @@
 <div class="container-fluid">
 
     <!-- Page Heading -->
-    <h1 class="h3 mb-2 text-gray-800">Tables</h1>
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-danger">List Ruangan</h6>
+            <h3 class="m-0 font-weight-bold text-danger">List Ruangan
+            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal" style="float:right"><i class="fa fa-plus-circle" aria-hidden="true"></i> 
+                Tambah Ruangan
+            </button>
+            </h3>
         </div>
         <div class="card-body">
-            <div class="table-responsive">
+            <div class="table-responsive" >
                 <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-
-                    <button type="button" class="btn btn-primary mb-4" data-toggle="modal" data-target="#exampleModal">
-                        Tambah Ruangan
-                    </button>
-                    <thead>
+                    <thead style="background-color:#ff471a; color:white">
                         <tr>
                             <th>No</th>
                             <th>Kode Ruangan</th>
@@ -25,15 +24,6 @@
                             <th>Action</th>
                         </tr>
                     </thead>
-                    <tfoot>
-
-                        <tr>
-                            <th>No</th>
-                            <th>Kode Ruangan</th>
-                            <th>Nama Ruangan</th>
-                            <th>Action</th>
-                        </tr>
-                    </tfoot>
                     <tbody>
                         <?php $i = 1;
                         foreach ($ruangan as $ruangan) { ?>
@@ -42,8 +32,8 @@
                                 <td><?= $ruangan->kode_ruangan ?></td>
                                 <td><?= $ruangan->nama_ruangan ?></td>
                                 <td>
-                                    <a href="<?= site_url('admin/edit_ruangan/' . $ruangan->id_ruangan) ?>" class="btn btn-success">Edit</a>
-                                    <button onclick="hapus(<?php echo $ruangan->id_ruangan; ?>)" class="btn btn-danger">Delete</button>
+                                    <a href="<?= site_url('admin/edit_ruangan/' . $ruangan->id_ruangan) ?>" class="btn btn-warning"><i class="fa fa-edit"></i></a>
+                                    <button onclick="hapus(<?php echo $ruangan->id_ruangan; ?>)" class="btn btn-danger"><i class="fa fa-trash"></i></button>
                                 </td>
                             </tr>
                         <?php } ?>
